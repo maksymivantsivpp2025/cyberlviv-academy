@@ -1,0 +1,18 @@
+# Системні службові файли ОС
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Тимчасові файли редакторів та пакетів
+~$*
+*.tmp
+*.bak
+*.log
+.vscode/
+.idea/
+
+# Залежності та архіви
+node_modules/
+dist/
+*.zip
