@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Професійні тренування з CS2, Dota 2 та Valorant у Львові. Аналітика, pro-залізо 360Hz, калькулятор ігрового часу та драфти в команди. Запишись на безкоштовний трайаут!">
+  <title>Кіберспортивна академія «КіберЛьвів» — Твій старт у Pro-Gaming</title>
+
+  <!-- Google Fonts: Inter & Orbitron -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'cyber-bg': '#0a0a0c',
+            'cyber-alt': '#070809',
+            'cyber-surface': '#121318',
+            'cyber-hover': '#191b22',
+            'cyber-primary': '#d91a52',
+            'cyber-primary-hover': '#b51240',
+            'cyber-neon': '#ff2a5f',
+            'cyber-cyan': '#00f0ff',
+            'cyber-muted': '#8a8f98',
+            'cyber-border': '#232630',
+            'cyber-border-cyan': 'rgba(0, 240, 255, 0.35)',
+            'cyber-footer': '#050608',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['Orbitron', 'Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            'hud-crimson': '0 0 24px rgba(217, 26, 82, 0.45)',
+            'hud-cyan': '0 0 20px rgba(0, 240, 255, 0.35)',
+            'card-dark': '0 12px 32px rgba(0, 0, 0, 0.55)',
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Користувацькі стилі бренду та змінні :root для медіаінтеграцій (ЛР №7) -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-cyber-bg text-white font-sans antialiased selection:bg-cyber-primary selection:text-white overflow-x-hidden">
+
+  <!-- ======================================================================
+       1. ШАПКА ТА НАВІГАЦІЯ (HEADER / NAVBAR)
+       ====================================================================== -->
+  <header class="sticky top-0 z-50 bg-cyber-bg/95 backdrop-blur-md border-b border-cyber-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20 gap-4">
+        
+        <!-- Бренд-логотип ліворуч -->
+        <a aria-label="КіберЛьвів — головна сторінка" title="Перейти на початок лендингу КіберЛьвів" class="flex items-center gap-3 shrink-0 whitespace-nowrap group focus:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan rounded-lg p-1" href="#hero-title">
+          <img src="assets/icons/logo.svg" alt="Логотип кіберспортивної академії КіберЛьвів" class="w-10 h-10 shrink-0 rounded border border-cyber-border group-hover:border-cyber-cyan transition-colors duration-200">
+          <span class="font-display font-bold text-lg tracking-wider text-white">
+            КІБЕР<span class="text-cyber-neon">ЛЬВІВ</span>
+          </span>
+        </a>
+
+        <!-- Десктопна навігація по центру (прихована на мобільних/планшетах та вузьких вікнах DevTools: hidden xl:flex) -->
+        <nav class="hidden xl:flex items-center gap-3.5 2xl:gap-5 whitespace-nowrap" aria-label="Головна навігація">
+          <a href="#benefits" title="Переваги та методологія академії" class="text-xs 2xl:text-sm font-medium text-cyber-muted hover:text-cyber-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan rounded px-1 transition-colors duration-200 whitespace-nowrap">Методологія</a>
+
+          <!-- Випадний список (Dropdown): Каталог буткемпів та прайс -->
+          <div class="relative group">
+            <button type="button" class="flex items-center gap-1.5 text-xs 2xl:text-sm font-medium text-cyber-muted group-hover:text-cyber-cyan transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan rounded px-1 py-2 whitespace-nowrap" aria-expanded="false" id="courses-dropdown-btn">
+              <span>Каталог курсів</span>
+              <i class="fas fa-chevron-down text-xs text-cyber-muted group-hover:text-cyber-cyan transition-transform duration-200 group-hover:rotate-180" aria-hidden="true"></i>
+            </button>
+            <div class="absolute left-0 top-full hidden group-hover:block group-focus-within:block w-64 pt-2 z-50">
+              <div class="bg-cyber-surface border border-cyber-border rounded-xl shadow-card-dark p-2 backdrop-blur-xl">
+                <a href="#programs" title="Курс CS2: Pro Aim & Tactics" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-cyber-muted hover:text-white hover:bg-cyber-hover transition-colors">
+                  <span class="w-2 h-2 rounded-full bg-cyber-primary"></span>
+                  <div>
+                    <p class="font-semibold text-white">CS2: Pro Aim &amp; Tactics</p>
+                    <p class="text-xs text-cyber-muted">Рейтинг Faceit 7–10</p>
+                  </div>
+                </a>
+                <a href="#programs" title="Курс Valorant: Radiant Protocol" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-cyber-muted hover:text-white hover:bg-cyber-hover transition-colors">
+                  <span class="w-2 h-2 rounded-full bg-cyber-cyan"></span>
+                  <div>
+                    <p class="font-semibold text-white">Valorant: Radiant Protocol</p>
+                    <p class="text-xs text-cyber-muted">Ascendant — Radiant</p>
+                  </div>
+                </a>
+                <a href="#programs" title="Курс Dota 2: Macro & Draft" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-cyber-muted hover:text-white hover:bg-cyber-hover transition-colors">
+                  <span class="w-2 h-2 rounded-full bg-cyber-primary"></span>
+                  <div>
+                    <p class="font-semibold text-white">Dota 2: Macro &amp; Draft</p>
+                    <p class="text-xs text-cyber-muted">5500–8000+ MMR</p>
+                  </div>
+                </a>
+                <div class="border-t border-cyber-border my-1"></div>
+                <a href="#programs" title="Переглянути всі 6 програм підготовки" class="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold text-cyber-cyan hover:bg-cyber-hover transition-colors">
+                  <span>Усі 6 програм та прайс</span>
+                  <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="#promo-video" title="Відеопрезентація кіберарени" class="text-xs 2xl:text-sm font-medium text-cyber-muted hover:text-cyber-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan rounded px-1 transition-colors duration-200 whitespace-nowrap">Відеоогляд</a>
+          <a href="#calculator" title="Калькулятор ігрового часу" class="text-xs 2xl:text-sm font-medium text-cyber-muted hover:text-cyber-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan rounded px-1 transition-colors duration-200 whitespace-nowrap">Калькулятор</a>
+          <a href="#parents" title="Безпека та здоров'я для батьків" class="text-xs 2xl:text-sm font-medium text-cyber-muted hover:text-cyber-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan rounded px-1 transition-colors duration-200 whitespace-nowrap">Батькам</a>
+          <a href="#reviews" title="Відгуки випускників та батьків" class="text-xs 2xl:text-sm font-medium text-cyber-muted hover:text-cyber-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan rounded px-1 transition-colors duration-200 whitespace-nowrap">Відгуки</a>
+          <a href="#contacts-map" title="Інтерактивна карта та інформери" class="text-xs 2xl:text-sm font-medium text-cyber-muted hover:text-cyber-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan rounded px-1 transition-colors duration-200 whitespace-nowrap">Карта &amp; Хаб</a>
+        </nav>
+
+        <!-- Кнопки дій праворуч (десктоп) -->
+        <div class="hidden md:flex items-center gap-2.5 shrink-0">
+          <a href="#calculator" title="Розрахувати ігровий час у HUD" class="hidden 2xl:inline-flex items-center justify-center px-3.5 py-2.5 text-xs font-display font-semibold tracking-wider text-cyber-cyan border border-cyber-border-cyan rounded-lg hover:border-cyber-cyan hover:bg-cyber-cyan/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan transition duration-200 min-h-[44px] whitespace-nowrap">
+            <i class="fas fa-crosshairs mr-2" aria-hidden="true"></i> Увійти в HUD
+          </a>
+          <a href="#tryout" title="Записатися на безкоштовний трайаут" class="cta-button inline-flex items-center justify-center px-4 py-2.5 text-xs font-display font-semibold tracking-wider text-white bg-cyber-primary rounded-lg hover:bg-cyber-primary-hover active:scale-[0.98] hud-glow-crimson focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan transition duration-200 min-h-[44px] whitespace-nowrap">
+            <i class="fas fa-bolt mr-2" aria-hidden="true"></i> Приєднатися
+          </a>
+        </div>
+
+        <!-- Кнопка мобільного гамбургер-меню (видима до 1280px: block xl:hidden) -->
+        <button id="mobile-menu-toggle" type="button" class="block xl:hidden shrink-0 p-2.5 rounded-lg text-cyber-muted hover:text-white bg-cyber-surface border border-cyber-border focus:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan min-h-[44px] min-w-[44px]" aria-expanded="false" aria-controls="mobile-menu" aria-label="Відкрити головне меню навігації">
+          <i id="menu-icon-bars" class="fas fa-bars text-lg" aria-hidden="true"></i>
+          <i id="menu-icon-close" class="fas fa-times text-lg hidden" aria-hidden="true"></i>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Мобільна висувна панель навігації -->
+    <div id="mobile-menu" class="hidden xl:hidden border-t border-cyber-border bg-cyber-bg px-4 pt-4 pb-6 space-y-3">
+      <nav class="flex flex-col space-y-2" aria-label="Мобільне меню">
+        <a href="#benefits" title="Методологія академії" class="mobile-link px-3 py-2 rounded-lg text-base font-medium text-cyber-muted hover:text-white hover:bg-cyber-surface transition">Методологія</a>
+        <a href="#programs" title="Каталог курсів академії" class="mobile-link px-3 py-2 rounded-lg text-base font-medium text-cyber-muted hover:text-white hover:bg-cyber-surface transition">Каталог курсів (6 буткемпів)</a>
+        <a href="#promo-video" title="Відеопрезентація кіберарени" class="mobile-link px-3 py-2 rounded-lg text-base font-medium text-cyber-muted hover:text-white hover:bg-cyber-surface transition">Відеопрезентація арени</a>
+        <a href="#calculator" title="Калькулятор ігрового часу" class="mobile-link px-3 py-2 rounded-lg text-base font-medium text-cyber-muted hover:text-white hover:bg-cyber-surface transition">Калькулятор ігрового часу</a>
+        <a href="#parents" title="Інформація для батьків" class="mobile-link px-3 py-2 rounded-lg text-base font-medium text-cyber-muted hover:text-white hover:bg-cyber-surface transition">Інформація для батьків</a>
+        <a href="#reviews" title="Відгуки випускників" class="mobile-link px-3 py-2 rounded-lg text-base font-medium text-cyber-muted hover:text-white hover:bg-cyber-surface transition">Відгуки учнів</a>
+        <a href="#contacts-map" title="Інтерактивна карта та інформери" class="mobile-link px-3 py-2 rounded-lg text-base font-medium text-cyber-muted hover:text-white hover:bg-cyber-surface transition">Карта арени та інформери</a>
+      </nav>
+      <div class="pt-3 border-t border-cyber-border flex flex-col gap-2.5">
+        <a href="#calculator" title="Перейти до телеметрії HUD" class="mobile-link w-full inline-flex items-center justify-center px-4 py-3 text-sm font-display font-semibold text-cyber-cyan border border-cyber-border-cyan rounded-lg hover:bg-cyber-cyan/10 transition min-h-[44px]">
+          <i class="fas fa-crosshairs mr-2" aria-hidden="true"></i> Телеметрія HUD
+        </a>
+        <a href="#tryout" title="Записатися на безкоштовний трайаут" class="mobile-link cta-button w-full inline-flex items-center justify-center px-4 py-3 text-sm font-display font-semibold text-white bg-cyber-primary rounded-lg hover:bg-cyber-primary-hover active:scale-[0.98] transition min-h-[44px]">
+          <i class="fas fa-bolt mr-2" aria-hidden="true"></i> Записатися на трайаут
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         2. ГОЛОВНИЙ ЕКРАН (HERO SECTION — ЄДИНИЙ H1 + НАТИВНЕ HTML5-ВІДЕО)
+         ====================================================================== -->
+    <section class="hero-hud-backdrop border-b border-cyber-border py-10 md:py-20 lg:py-24" aria-labelledby="hero-title">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          <!-- Ліва колонка: УТП (H1), підзаголовок, кнопки CTA та метрики -->
+          <div class="lg:col-span-7 space-y-5 md:space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyber-surface border border-cyber-border text-xs font-display font-semibold tracking-wider text-cyber-cyan uppercase">
+              <span class="w-2 h-2 rounded-full bg-cyber-cyan status-pulse" aria-hidden="true"></span>
+              <span>Кіберспортивна академія • Cyber-Athletic HUD</span>
+            </div>
+
+            <h1 id="hero-title" class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-display font-bold text-white leading-tight">
+              Твій шлях від пабліків до <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-neon to-cyber-cyan">професійної кіберсцени</span> у Львові
+            </h1>
+
+            <p class="text-base sm:text-lg text-cyber-muted max-w-2xl leading-relaxed">
+              Тренуйся під керівництвом чинних pro-гравців у CS2, Dota 2 та Valorant. Прокачуй скіли, контролюй ігровий час без вигорання, виходь на драфти академій і вигравай перші призові вже за 3 місяці.
+            </p>
+
+            <!-- Кнопки заклику до дії (CTA) з мікровзаємодіями hover/focus (Етап 6.2–6.3) -->
+            <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 pt-2">
+              <a href="#tryout" title="Записатися на безкоштовний пробний трайаут" class="cta-button w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 text-sm font-display font-semibold text-white bg-cyber-primary rounded-lg hover:bg-cyber-primary-hover hover:shadow-hud-crimson focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-cyber-bg transition-all duration-200 min-h-[44px] whitespace-nowrap">
+                <i class="fas fa-bolt mr-2" aria-hidden="true"></i> Записатися на безкоштовний трайаут
+              </a>
+              <a href="#calculator" title="Розрахувати індивідуальний план тренувань" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 text-sm font-display font-semibold text-white border border-cyber-border-cyan rounded-lg hover:border-cyber-cyan hover:bg-cyber-cyan/10 hover:shadow-hud-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-cyber-bg transition-all duration-200 min-h-[44px] whitespace-nowrap">
+                <i class="fas fa-calculator mr-2 text-cyber-cyan" aria-hidden="true"></i> Розрахувати тренування
+              </a>
+            </div>
+
+            <!-- Ключові метрики соціального доказу в Hero -->
+            <ul class="grid grid-cols-3 gap-3 sm:gap-4 pt-6 border-t border-cyber-border" aria-label="Ключові показники академії">
+              <li class="space-y-1">
+                <p class="font-display font-bold text-xl sm:text-2xl md:text-3xl text-cyber-cyan whitespace-nowrap">360 Hz</p>
+                <p class="text-xs text-cyber-muted">Монітори арени</p>
+              </li>
+              <li class="space-y-1">
+                <p class="font-display font-bold text-xl sm:text-2xl md:text-3xl text-cyber-neon whitespace-nowrap">+28%</p>
+                <p class="text-xs text-cyber-muted">Ріст Win Rate за 90 днів</p>
+              </li>
+              <li class="space-y-1">
+                <p class="font-display font-bold text-xl sm:text-2xl md:text-3xl text-white whitespace-nowrap">100%</p>
+                <p class="text-xs text-cyber-muted">Контроль сну та розминки</p>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Права колонка: Нативне HTML5-відео (Варіант 2 інтеграції відео з ЛР №3 та ЛР №7) -->
+          <div class="lg:col-span-5">
+            <figure class="relative rounded-2xl overflow-hidden border border-cyber-border bg-cyber-surface shadow-card-dark group">
+              <!-- МЕДІАІНТЕГРАЦІЯ №1 (ВАРІАНТ 2): Нативне HTML5-відео з autoplay, loop, muted, playsinline -->
+              <video autoplay loop muted playsinline poster="assets/images/hero-arena.jpg" class="w-full h-72 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-500">
+                <source src="assets/images/hero.webm" type="video/webm">
+                <source src="assets/images/hero.mp4" type="video/mp4">
+                <img src="assets/images/hero-arena.jpg" alt="Тренувальна кіберарена КіберЛьвів з неоновим підсвічуванням та телеметрією" class="w-full h-72 sm:h-96 object-cover">
+              </video>
+              <figcaption class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-cyber-bg via-cyber-bg/85 to-transparent flex items-center justify-between text-xs font-display">
+                <span class="inline-flex items-center gap-2 text-cyber-cyan">
+                  <span class="w-2 h-2 rounded-full bg-cyber-cyan status-pulse" aria-hidden="true"></span>
+                  LIVE HUD VIDEO • 360HZ ARENA
+                </span>
+                <span class="text-cyber-muted">LVIV PRO HUB</span>
+              </figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3. ПЕРЕВАГИ ТА МЕТОДОЛОГІЯ (BENEFITS SECTION — 3 КАРТКИ)
+         ====================================================================== -->
+    <section id="benefits" class="py-12 md:py-24 border-b border-cyber-border" aria-labelledby="benefits-title">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-10 md:mb-16 space-y-3">
+          <p class="text-xs font-display font-semibold tracking-widest text-cyber-cyan uppercase">Наша методологія</p>
+          <h2 id="benefits-title" class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white">
+            Чому обирають «КіберЛьвів»
+          </h2>
+          <p class="text-sm sm:text-base text-cyber-muted">
+            Ми створили «КіберЛьвів», щоб перетворити хаотичні години за комп’ютером на зрозумілу кар’єрну траєкторію під керівництвом діючих кіберспортсменів та сертифікованих аналітиків.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <article class="hud-card-frame bg-cyber-surface border border-cyber-border rounded-xl p-6 sm:p-8 hover:border-cyber-cyan/40 hover:bg-cyber-hover transition duration-300 space-y-4">
+            <div class="w-14 h-14 rounded-lg bg-cyber-bg border border-cyber-border flex items-center justify-center">
+              <img src="assets/icons/icon-speed.svg" alt="Іконка швидкості реакції та низького пінгу" class="w-8 h-8">
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Aim &amp; Precision (Швидкість)</h3>
+            <p class="text-sm text-cyber-muted leading-relaxed">
+              Тренування мікроскілу та зниження Aim Lag на преміальному залізі 360Hz з мінімальним пінгом. Персональні алгоритми розминки перед матчами.
+            </p>
+          </article>
+
+          <article class="hud-card-frame bg-cyber-surface border border-cyber-border rounded-xl p-6 sm:p-8 hover:border-cyber-cyan/40 hover:bg-cyber-hover transition duration-300 space-y-4">
+            <div class="w-14 h-14 rounded-lg bg-cyber-bg border border-cyber-border flex items-center justify-center">
+              <img src="assets/icons/icon-analytics.svg" alt="Іконка радарної аналітики ігрових навичок" class="w-8 h-8">
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Tactical Brain (Телеметрія)</h3>
+            <p class="text-sm text-cyber-muted leading-relaxed">
+              Посекундний розбір кожної демки (VOD) із сертифікованим тренером. Аналіз KDA, карти розкидок, таймінгів ротації та командної комунікації, як у про-ростерах.
+            </p>
+          </article>
+
+          <article class="hud-card-frame bg-cyber-surface border border-cyber-border rounded-xl p-6 sm:p-8 hover:border-cyber-cyan/40 hover:bg-cyber-hover transition duration-300 space-y-4 sm:col-span-2 lg:col-span-1">
+            <div class="w-14 h-14 rounded-lg bg-cyber-bg border border-cyber-border flex items-center justify-center">
+              <img src="assets/icons/icon-security.svg" alt="Іконка захисту здоров'я та дисципліни гравця" class="w-8 h-8">
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Health &amp; Safety (Дисципліна)</h3>
+            <p class="text-sm text-cyber-muted leading-relaxed">
+              Ергономічні ігрові місця, обов’язкова фізична розминка щогодини, підтримка спортивних психологів та чіткий розклад, який цінують батьки.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. ПОСЛУГИ ТА ПРОГРАМИ (SERVICES / PROGRAMS — 6 КАРТОК БУТКЕМПІВ)
+         Mobile: 1 колонка (grid-cols-1), Tablet: 2 колонки (sm:grid-cols-2), Desktop: 3 колонки (lg:grid-cols-3)
+         ====================================================================== -->
+    <section id="programs" class="py-12 md:py-24 bg-cyber-alt border-b border-cyber-border" aria-labelledby="programs-title">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-10 md:mb-16 space-y-3">
+          <p class="text-xs font-display font-semibold tracking-widest text-cyber-neon uppercase">Навчальні програми та тарифи</p>
+          <h2 id="programs-title" class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white">
+            Дисципліни та буткемпи академії
+          </h2>
+          <p class="text-sm sm:text-base text-cyber-muted">
+            Структуровані 12-тижневі треки підготовки з готовим портфоліо для драфтів та виходом на офіційні студентські й юніорські ліги.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Картка 1: CS2 Pro Aim -->
+          <article class="bg-cyber-surface border border-cyber-border rounded-xl overflow-hidden hover:border-cyber-primary/60 hover:shadow-card-dark transition duration-300 flex flex-col justify-between">
+            <div>
+              <div class="p-6 border-b border-cyber-border space-y-3">
+                <span class="inline-block px-3 py-1 rounded-md text-xs font-display font-semibold text-white bg-cyber-primary">
+                  CS2 • FACEIT LVL 7–10
+                </span>
+                <h3 class="font-display font-bold text-xl text-white">CS2: Pro Aim &amp; Game Sense</h3>
+                <p class="text-sm text-cyber-muted leading-relaxed">
+                  Поглиблений курс стрільби, префаєрів, економіки раундів та командних ретейків під керівництвом чинних аналітиків сцени.
+                </p>
+              </div>
+              <ul class="p-6 space-y-2.5 text-xs text-cyber-muted">
+                <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-cyan" aria-hidden="true"></i> 3 командні праки на тиждень на 360Hz</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-cyan" aria-hidden="true"></i> Персональний розбір 2 демо-записів (VOD)</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-cyan" aria-hidden="true"></i> Підготовка до NAVI / B8 Youth Draft</li>
+              </ul>
+            </div>
+            <div class="p-6 border-t border-cyber-border flex items-center justify-between flex-wrap gap-3 bg-cyber-bg/40">
+              <span class="font-display font-bold text-lg text-white">3 200 <span class="text-xs font-sans text-cyber-muted font-normal">грн/міс</span></span>
+              <a href="#tryout" title="Обрати курс CS2: Pro Aim & Game Sense" class="cta-button inline-flex items-center justify-center px-4 py-2.5 text-xs font-display font-semibold text-white bg-cyber-primary hover:bg-cyber-primary-hover rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan transition min-h-[44px]">Обрати курс</a>
+            </div>
+          </article>
+
+          <!-- Картка 2: Valorant Radiant -->
+          <article class="bg-cyber-surface border border-cyber-border rounded-xl overflow-hidden hover:border-cyber-cyan/60 hover:shadow-card-dark transition duration-300 flex flex-col justify-between">
+            <div>
+              <div class="p-6 border-b border-cyber-border space-y-3">
+                <span class="inline-block px-3 py-1 rounded-md text-xs font-display font-semibold text-cyber-bg bg-cyber-cyan">
+                  VALORANT • ASCENDANT+
+                </span>
+                <h3 class="font-display font-bold text-xl text-white">Valorant: Radiant Protocol</h3>
+                <p class="text-sm text-cyber-muted leading-relaxed">
+                  Опанування пулу агентів, таймінгів ультимейтів, кросхейр-плейсменту та ментальної стійкості у клатч-раундах.
+                </p>
+              </div>
+              <ul class="p-6 space-y-2.5 text-xs text-cyber-muted">
+                <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-cyan" aria-hidden="true"></i> Коучинг за ролями (Duelist / Initiator / IGL)</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-cyan" aria-hidden="true"></i> Aim Lab + KovaaK's телеметрія точності</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-cyan" aria-hidden="true"></i> Участь у відкритих VCT Challengers</li>
+              </ul>
+            </div>
+            <div class="p-6 border-t border-cyber-border flex items-center justify-between flex-wrap gap-3 bg-cyber-bg/40">
+              <span class="font-display font-bold text-lg text-white">3 000 <span class="text-xs font-sans text-cyber-muted font-normal">грн/міс</span></span>
+              <a href="#tryout" title="Обрати курс Valorant: Radiant Protocol" class="cta-button inline-flex items-center justify-center px-4 py-2.5 text-xs font-display font-semibold text-white bg-cyber-primary hover:bg-cyber-primary-hover rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan transition min-h-[44px]">Обрати курс</a>
+            </div>
+          </article>
+
+          <!-- Картка 3: Dota 2 Macro -->
+          <article class="bg-cyber-surface border border-cyber-border rounded-xl overflow-hidden hover:border-cyber-primary/60 hover:shadow-card-dark transition duration-300 flex flex-col justify-between">
+            <div>
+              <div class="p-6 border-b border-cyber-border space-y-3">
+                <span class="inline-block px-3 py-1 rounded-md text-xs font-display font-semibold text-white bg-cyber-primary">
+                  DOTA 2 • 5500–8000+ MMR
+                </span>
+                <h3 class="font-display font-bold text-xl text-white">Dota 2: Macro &amp; Draft Lab</h3>
+                <p class="text-sm text-cyber-muted leading-relaxed">
+                  Системне навчання лайнінгу, контролю рун і Рошана, побудови пулу героїв та макро-переміщень по карті.
+                </p>
+              </div>
+              <ul class="p-6 space-y-2.5 text-xs text-cyber-muted">
+                <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-cyan" aria-hidden="true"></i> Аналіз стадії драфту (Captain's Mode)</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-cyan" aria-hidden="true"></i> Оптимізація таймінгів фарму та смоків</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-cyan" aria-hidden="true"></i> Щотижневі турніри Львівської Академ-ліги</li>
+              </ul>
+            </div>
+            <div class="p-6 border-t border-cyber-border flex items-center justify-between flex-wrap gap-3 bg-cyber-bg/40">
+              <span class="font-display font-bold text-lg text-white">2 900 <span class="text-xs font-sans text-cyber-muted font-normal">грн/міс</span></span>
+              <a href="#tryout" title="Обрати курс Dota 2: Macro & Draft Lab" class="cta-button inline-flex items-center justify-center px-4 py-2.5 text-xs font-display font-semibold text-white bg-cyber-primary hover:bg-cyber-primary-hover rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan transition min-h-[44px]">Обрати курс</a>
+            </div>
+          </article>
+
+          <!-- Картка 4: CS2 Young Lions (Юніори) -->
+          <article class="bg-cyber-surface border border-cyber-border rounded-xl overflow-hidden hover:border-cyber-cyan/60 hover:shadow-card-dark transition duration-300 flex flex-col justify-between">
+            <div>
+              <div class="p-6 border-b border-cyber-border space-y-3">
+                <span class="inline-block px-3 py-1 rounded-md text-xs font-display font-semibold text-cyber-cyan bg-cyber-surface border border-cyber-border-cyan">
+                  JUNIOR • ВІК 12–15 РОКІВ
+                </span>
+                <h3 class="font-display font-bold text-xl text-white">CS2: Young Lions Junior</h3>
+                <p class="text-sm text-cyber-muted leading-relaxed">
+                  Адаптаційна програма для підлітків: постановка правильного хвату миші, гігієна гри, комунікація без токсичності та баланс з навчанням.
+                </p>
+              </div>
+              <ul class="p-6 space-y-2.5 text-xs text-cyber-muted">
+                <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-cyan" aria-hidden="true"></i> Базовий трекінг цілі та стрейфи</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-cyan" aria-hidden="true"></i> Обов’язковий щотижневий звіт батькам</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-cyan" aria-hidden="true"></i> Групи до 5 учнів із дитячим психологом</li>
+              </ul>
+            </div>
+            <div class="p-6 border-t border-cyber-border flex items-center justify-between flex-wrap gap-3 bg-cyber-bg/40">
+              <span class="font-display font-bold text-lg text-white">2 600 <span class="text-xs font-sans text-cyber-muted font-normal">грн/міс</span></span>
+              <a href="#tryout" title="Обрати курс CS2: Young Lions Junior" class="cta-button inline-flex items-center justify-center px-4 py-2.5 text-xs font-display font-semibold text-white bg-cyber-primary hover:bg-cyber-primary-hover rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan transition min-h-[44px]">Обрати курс</a>
+            </div>
+          </article>
+
+          <!-- Картка 5: Esports Analytics & IGL Track -->
+          <article class="bg-cyber-surface border border-cyber-border rounded-xl overflow-hidden hover:border-cyber-primary/60 hover:shadow-card-dark transition duration-300 flex flex-col justify-between">
+            <div>
+              <div class="p-6 border-b border-cyber-border space-y-3">
+                <span class="inline-block px-3 py-1 rounded-md text-xs font-display font-semibold text-white bg-cyber-primary">
+                  ANALYTICS • PRO IGL
+                </span>
+                <h3 class="font-display font-bold text-xl text-white">Esports Analytics &amp; IGL Track</h3>
+                <p class="text-sm text-cyber-muted leading-relaxed">
+                  Підготовка капітанів (In-Game Leaders) та аналітиків. Робота з тепловими картами Faceit, розбір економічних моделей та стратегічний драфт.
+                </p>
+              </div>
+              <ul class="p-6 space-y-2.5 text-xs text-cyber-muted">
+                <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-cyan" aria-hidden="true"></i> Професійні софтверні інструменти розбору</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-cyan" aria-hidden="true"></i> Психологія лідерства та антикризовий колінг</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-cyan" aria-hidden="true"></i> Сертифікація аналітика академії</li>
+              </ul>
+            </div>
+            <div class="p-6 border-t border-cyber-border flex items-center justify-between flex-wrap gap-3 bg-cyber-bg/40">
+              <span class="font-display font-bold text-lg text-white">3 400 <span class="text-xs font-sans text-cyber-muted font-normal">грн/міс</span></span>
+              <a href="#tryout" title="Обрати курс Esports Analytics & IGL Track" class="cta-button inline-flex items-center justify-center px-4 py-2.5 text-xs font-display font-semibold text-white bg-cyber-primary hover:bg-cyber-primary-hover rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan transition min-h-[44px]">Обрати курс</a>
+            </div>
+          </article>
+
+          <!-- Картка 6: Weekend Bootcamp: Pro Tryout -->
+          <article class="bg-cyber-surface border border-cyber-border rounded-xl overflow-hidden hover:border-cyber-cyan/60 hover:shadow-card-dark transition duration-300 flex flex-col justify-between">
+            <div>
+              <div class="p-6 border-b border-cyber-border space-y-3">
+                <span class="inline-block px-3 py-1 rounded-md text-xs font-display font-semibold text-cyber-bg bg-cyber-cyan">
+                  WEEKEND • ЛАН-ІНТЕНСИВ
+                </span>
+                <h3 class="font-display font-bold text-xl text-white">Weekend Bootcamp: Pro Tryout</h3>
+                <p class="text-sm text-cyber-muted leading-relaxed">
+                  Дводенний інтенсив повного занурення на фізичній арені у Львові: тест реакції, 10 годин командної практики, аудит помилок та піца-паті.
+                </p>
+              </div>
+              <ul class="p-6 space-y-2.5 text-xs text-cyber-muted">
+                <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-cyan" aria-hidden="true"></i> 100% залізо арени 360Hz та оптоволокно 1Gb</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-cyan" aria-hidden="true"></i> Персональна карта рекомендацій тренера</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-cyan" aria-hidden="true"></i> Субота–неділя з 11:00 до 18:00</li>
+              </ul>
+            </div>
+            <div class="p-6 border-t border-cyber-border flex items-center justify-between flex-wrap gap-3 bg-cyber-bg/40">
+              <span class="font-display font-bold text-lg text-white">1 800 <span class="text-xs font-sans text-cyber-muted font-normal">грн/інтенсив</span></span>
+              <a href="#tryout" title="Обрати Weekend Bootcamp: Pro Tryout" class="cta-button inline-flex items-center justify-center px-4 py-2.5 text-xs font-display font-semibold text-white bg-cyber-primary hover:bg-cyber-primary-hover rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan transition min-h-[44px]">Обрати курс</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. МЕДІА-СЕКЦІЯ: ВІДЕОПРЕЗЕНТАЦІЯ YOUTUBE (ЕТАП 7.1 — IFRAME EMBEDDING)
+         Використано aspect-ratio: 16/9 (.video-responsive), title та loading="lazy"
+         ====================================================================== -->
+    <section id="promo-video" class="py-12 md:py-24 border-b border-cyber-border" aria-labelledby="video-title">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-8 md:mb-12 space-y-3">
+          <p class="text-xs font-display font-semibold tracking-widest text-cyber-cyan uppercase">Мультимедійний огляд • Ембеддинг</p>
+          <h2 id="video-title" class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white">
+            Відеопрезентація інженерної бази та буткемпу
+          </h2>
+          <p class="text-sm sm:text-base text-cyber-muted">
+            Ознайомтеся з інфраструктурою підготовки ІТ-фахівців та кіберспортсменів: розбір телеметрії, командна взаємодія та лабораторний комплекс.
+          </p>
+        </div>
+
+        <!-- МЕДІАІНТЕГРАЦІЯ №2 (ВАРІАНТ 1): Вбудоване стороннє відео YouTube через <iframe> -->
+        <div class="video-section">
+          <div class="video-responsive aspect-video w-full rounded-xl shadow-lg">
+            <iframe
+              src="https://www.youtube.com/embed/plVmAmQaNpc"
+              title="Презентаційне відео про інженерну базу кафедри САП та підготовку в академії КіберЛьвів"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+          </div>
+
+          <!-- Інформаційна плашка параметрів потоку під плеєром -->
+          <div class="mt-6 w-full max-w-[860px] grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+            <div class="bg-cyber-surface border border-cyber-border rounded-lg p-3.5 flex items-center gap-3">
+              <i class="fab fa-youtube text-cyber-neon text-lg" aria-hidden="true"></i>
+              <div>
+                <p class="font-display font-semibold text-white">Адаптивний плеєр 16:9</p>
+                <p class="text-cyber-muted">CSS aspect-ratio без Layout Shift</p>
+              </div>
+            </div>
+            <div class="bg-cyber-surface border border-cyber-border rounded-lg p-3.5 flex items-center gap-3">
+              <i class="fas fa-bolt text-cyber-cyan text-lg" aria-hidden="true"></i>
+              <div>
+                <p class="font-display font-semibold text-white">Ліниве завантаження</p>
+                <p class="text-cyber-muted">Оптимізовано через loading="lazy"</p>
+              </div>
+            </div>
+            <div class="bg-cyber-surface border border-cyber-border rounded-lg p-3.5 flex items-center gap-3">
+              <i class="fas fa-universal-access text-emerald-400 text-lg" aria-hidden="true"></i>
+              <div>
+                <p class="font-display font-semibold text-white">WCAG 2.2 Доступність</p>
+                <p class="text-cyber-muted">Озвучення фрейму через title</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         6. КАЛЬКУЛЯТОР ІГРОВОГО ЧАСУ ТА ПЛАНУ ТРЕНУВАНЬ
+         ====================================================================== -->
+    <section id="calculator" class="py-12 md:py-24 bg-cyber-alt border-b border-cyber-border" aria-labelledby="calc-title">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-10 md:mb-16 space-y-3">
+          <p class="text-xs font-display font-semibold tracking-widest text-cyber-cyan uppercase">Флагманський інструмент</p>
+          <h2 id="calc-title" class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white">
+            Калькулятор ігрового часу та плану тренувань
+          </h2>
+          <p class="text-sm sm:text-base text-cyber-muted">
+            Алгоритм розраховує оптимальний баланс годин гри, сну та фізичної розминки, попереджаючи ризик перевтоми й падіння реакції (Aim Lag).
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article class="bg-cyber-surface border border-cyber-border rounded-xl p-6 sm:p-8 space-y-3">
+            <span class="text-xs font-display font-bold text-cyber-cyan tracking-wider">КРОК 01</span>
+            <h3 class="font-display font-bold text-lg text-white">Профіль та дисципліна</h3>
+            <p class="text-sm text-cyber-muted leading-relaxed">
+              Оберіть основну гру (CS2, Valorant, Dota 2), поточний рейтинг ELO/MMR та бажану турнірну ціль на найближчі 90 днів.
+            </p>
+          </article>
+
+          <article class="bg-cyber-surface border border-cyber-border rounded-xl p-6 sm:p-8 space-y-3">
+            <span class="text-xs font-display font-bold text-cyber-neon tracking-wider">КРОК 02</span>
+            <h3 class="font-display font-bold text-lg text-white">Аналіз навантаження</h3>
+            <p class="text-sm text-cyber-muted leading-relaxed">
+              Вкажіть поточну кількість ігрових годин на добу (від 1 до 16 год) та тривалість сну для виявлення дефіциту швидкості реакції.
+            </p>
+          </article>
+
+          <article class="bg-cyber-surface border border-cyber-border rounded-xl p-6 sm:p-8 space-y-3 sm:col-span-2 lg:col-span-1">
+            <span class="text-xs font-display font-bold text-cyber-cyan tracking-wider">КРОК 03</span>
+            <h3 class="font-display font-bold text-lg text-white">Персональний графік</h3>
+            <p class="text-sm text-cyber-muted leading-relaxed">
+              Отримайте розклад: розминка Aim (25%), командні праки (45%), розбір VOD (15%) та обов’язкові перерви для здоров’я (15%).
+            </p>
+          </article>
+        </div>
+
+        <!-- Панель телеметрії (семантичний aside) -->
+        <aside class="mt-8 bg-cyber-surface border border-cyber-border rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-cyber-muted" aria-label="Показник ефективності розрахунку">
+          <div class="flex items-center gap-3">
+            <i class="fas fa-shield-halved text-cyber-cyan text-lg" aria-hidden="true"></i>
+            <span>WCAG 2.2 AA &amp; Health Standard: автоматичний захист від перевтоми при &gt;5 год гри на добу.</span>
+          </div>
+          <a href="#tryout" title="Перейти до запису на тестування рівня" class="cta-button w-full md:w-auto inline-flex items-center justify-center px-6 py-2.5 font-display font-semibold text-white bg-cyber-primary hover:bg-cyber-primary-hover rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan transition min-h-[44px]">
+            Пройти тест ігрового рівня
+          </a>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         7. ІНФОРМАЦІЯ ДЛЯ БАТЬКІВ («Спорт + Кіберспорт»)
+         ====================================================================== -->
+    <section id="parents" class="py-12 md:py-24 border-b border-cyber-border" aria-labelledby="parents-title">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-10 md:mb-16 space-y-3">
+          <p class="text-xs font-display font-semibold tracking-widest text-cyber-cyan uppercase">Довіра та безпека</p>
+          <h2 id="parents-title" class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white">
+            Інформація для батьків: формула «Спорт + Кіберспорт»
+          </h2>
+          <p class="text-sm sm:text-base text-cyber-muted">
+            Замість безконтрольного сидіння вночі — прозорий освітній процес із турботою про поставу, зір та шкільну успішність.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article class="bg-cyber-surface border border-cyber-border rounded-xl p-6 sm:p-8 space-y-3">
+            <h3 class="font-display font-bold text-lg text-white flex items-center gap-2">
+              <i class="fas fa-heart-pulse text-cyber-neon" aria-hidden="true"></i> Фізичний тонус і зір
+            </h3>
+            <p class="text-sm text-cyber-muted leading-relaxed">
+              Кожні 50 хвилин тренування перериваються на 10-хвилинну розминку спини, шиї та спеціалізовану гімнастику для очей.
+            </p>
+          </article>
+
+          <article class="bg-cyber-surface border border-cyber-border rounded-xl p-6 sm:p-8 space-y-3">
+            <h3 class="font-display font-bold text-lg text-white flex items-center gap-2">
+              <i class="fas fa-user-check text-cyber-cyan" aria-hidden="true"></i> Сертифіковані наставники
+            </h3>
+            <p class="text-sm text-cyber-muted leading-relaxed">
+              З підлітками працюють верифіковані тренери та спортивний психолог, який навчає контролювати емоції без токсичності й тільту.
+            </p>
+          </article>
+
+          <article class="bg-cyber-surface border border-cyber-border rounded-xl p-6 sm:p-8 space-y-3 sm:col-span-2 lg:col-span-1">
+            <h3 class="font-display font-bold text-lg text-white flex items-center gap-2">
+              <i class="fas fa-chart-line text-cyber-neon" aria-hidden="true"></i> Щотижневий звіт батькам
+            </h3>
+            <p class="text-sm text-cyber-muted leading-relaxed">
+              Відкритий дашборд відвідуваності, дотримання режиму сну та прогресу дисципліни в особистому кабінеті.
+            </p>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         8. СОЦІАЛЬНІ ДОКАЗИ ТА ВІДГУКИ (SOCIAL PROOF / TESTIMONIALS)
+         Рефакторинг за методом Pick Element (Кейс 1): семантичні <article class="user-review">
+         ====================================================================== -->
+    <section id="reviews" class="py-12 md:py-24 bg-cyber-alt border-b border-cyber-border" aria-labelledby="reviews-title">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-10 md:mb-16 space-y-3">
+          <p class="text-xs font-display font-semibold tracking-widest text-cyber-cyan uppercase">Соціальний доказ • Результати</p>
+          <h2 id="reviews-title" class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white">
+            Відгуки випускників та батьків
+          </h2>
+          <p class="text-sm sm:text-base text-cyber-muted">
+            Реальні історії гравців зі Львова, які структурували свій час і вийшли на новий рівень гри.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Семантичний вузол відгуку 1 (відрефакторено методом Pick Element) -->
+          <article class="user-review bg-cyber-surface border border-cyber-border rounded-xl p-6 sm:p-8 space-y-4 flex flex-col justify-between hover:border-cyber-cyan/40 transition duration-300">
+            <p class="review-text text-sm text-cyber-muted italic leading-relaxed">
+              «За 3 місяці в КіберЛьвів підняв з 1450 до 2250 ELO на Faceit. Головне — перестав грати по 8 годин хаотично: калькулятор показав, що після 4-ї години мій Aim падає на 22%.»
+            </p>
+            <header class="pt-4 border-t border-cyber-border">
+              <h3 class="font-display font-bold text-sm text-white"><strong class="user-name">Назар К., 16 років</strong></h3>
+              <p class="text-xs text-cyber-cyan">Випускник буткемпу CS2 Pro Aim</p>
+            </header>
+          </article>
+
+          <!-- Семантичний вузол відгуку 2 (відрефакторено методом Pick Element) -->
+          <article class="user-review bg-cyber-surface border border-cyber-border rounded-xl p-6 sm:p-8 space-y-4 flex flex-col justify-between hover:border-cyber-primary/50 transition duration-300">
+            <p class="review-text text-sm text-cyber-muted italic leading-relaxed">
+              «Як мама я нарешті спокійна: син ходить у справжню спортивну секцію на вул. Франка, вчасно лягає спати, робить розминку і вже виграв свій перший студентський турнір.»
+            </p>
+            <header class="pt-4 border-t border-cyber-border">
+              <h3 class="font-display font-bold text-sm text-white"><strong class="user-name">Оксана Мельник</strong></h3>
+              <p class="text-xs text-cyber-neon">Мама учня (група Valorant U-17)</p>
+            </header>
+          </article>
+
+          <!-- Семантичний вузол відгуку 3 (відрефакторено методом Pick Element) -->
+          <article class="user-review bg-cyber-surface border border-cyber-border rounded-xl p-6 sm:p-8 space-y-4 flex flex-col justify-between sm:col-span-2 lg:col-span-1 hover:border-cyber-cyan/40 transition duration-300">
+            <p class="review-text text-sm text-cyber-muted italic leading-relaxed">
+              «Розбір демок з тренером дав більше за місяць, ніж два роки соло-пабліків у Dota 2. Чітка телеметрія, круте залізо 360 Hz і топова командна атмосфера!»
+            </p>
+            <header class="pt-4 border-t border-cyber-border">
+              <h3 class="font-display font-bold text-sm text-white"><strong class="user-name">Данило В., 17 років</strong></h3>
+              <p class="text-xs text-cyber-cyan">Капітан складу Academy Draft</p>
+            </header>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         9. ЛОКАЦІЯ АРЕНИ (GOOGLE MAPS IFRAME) ТА ДИНАМІЧНІ ІНФОРМЕРИ В <ASIDE>
+         Етап 7.2 (Карта) + Інтеграція динамічних інформерів (Погода, Час, Валюти)
+         ====================================================================== -->
+    <section id="contacts-map" class="map-section py-12 md:py-24 border-b border-cyber-border" aria-labelledby="location-hub-title">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-10 md:mb-16 space-y-3">
+          <p class="text-xs font-display font-semibold tracking-widest text-cyber-neon uppercase">Геолокація та Live-інформери</p>
+          <h2 id="location-hub-title" class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white">
+            Наше розташування у Львові та оперативні інформери арени
+          </h2>
+          <p class="text-sm sm:text-base text-cyber-muted">
+            Тренувальний буткемп «КіберЛьвів» розташований у центрі Львова (вул. Івана Франка, 61). Перевірте маршрут на інтерактивній мапі та актуальні показники часу, погоди й курсу турнірних призових.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Ліва частина (7 колонок): МЕДІАІНТЕГРАЦІЯ №3 — Інтерактивна карта Google Maps (<iframe>) -->
+          <div class="lg:col-span-7 space-y-4">
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2573.329917567392!2d24.008481515709175!3d49.83625817939535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add79af0e4d9d%3A0xa95470e031eb25c0!2z0JrQsNGE0LXQtNGA0LAg0KHQkNCf0KA!5e0!3m2!1suk!2sua!4v1641753753230!5m2!1suk!2sua"
+                title="Інтерактивна карта проїзду до кіберспортивної академії КіберЛьвів у м. Львів"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <div class="bg-cyber-surface border border-cyber-border rounded-xl p-4 flex items-start gap-3">
+                <i class="fas fa-location-dot text-cyber-neon text-base mt-0.5" aria-hidden="true"></i>
+                <div>
+                  <p class="font-display font-semibold text-white">Адреса LAN-арени</p>
+                  <p class="text-cyber-muted mt-1">м. Львів, вул. Івана Франка, 61 (поруч із парком та корпусами Львівської політехніки)</p>
+                </div>
+              </div>
+              <div class="bg-cyber-surface border border-cyber-border rounded-xl p-4 flex items-start gap-3">
+                <i class="fas fa-shield-virus text-cyber-cyan text-base mt-0.5" aria-hidden="true"></i>
+                <div>
+                  <p class="font-display font-semibold text-white">Автономність та безпека</p>
+                  <p class="text-cyber-muted mt-1">Сертифіковане укриття на -1 поверсі, оптоволокно GPON 1 Гбіт/с та живлення EcoFlow Pro</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Права частина (5 колонок): МЕДІАІНТЕГРАЦІЯ №4 — Сайдбар динамічних інформерів (<aside>) -->
+          <aside class="informer-sidebar lg:col-span-5" aria-label="Сайдбар динамічних інформерів погоди, точного часу та курсу валют">
+            
+              <!-- Віджет 1: Динамічний інформер точного часу у Львові та розкладу арени -->
+            <section class="widget-card time-widget" aria-labelledby="widget-time-title">
+              <div class="flex items-center justify-between flex-wrap gap-2 border-b border-cyber-border pb-2.5 mb-3">
+                <h3 id="widget-time-title" class="font-display font-bold text-sm text-white flex items-center gap-2">
+                  <i class="fas fa-clock text-cyber-cyan" aria-hidden="true"></i> Точний час • Львів (Time Hub)
+                </h3>
+                <span class="text-[11px] font-display text-cyber-cyan uppercase whitespace-nowrap">UTC+2 / EET</span>
+              </div>
+              <div class="flex flex-col sm:flex-row sm:items-baseline flex-wrap justify-between gap-2">
+                <p id="lviv-live-time" class="font-display font-extrabold text-2xl sm:text-3xl text-white tracking-wider whitespace-nowrap">14:30:00</p>
+                <p id="lviv-live-date" class="text-xs text-cyber-muted">Середа, 4 листопада 2026 р.</p>
+              </div>
+              <div class="mt-3 pt-2.5 border-t border-cyber-border/70 flex items-center justify-between flex-wrap gap-2 text-xs">
+                <span class="text-cyber-muted">Статус буткемпу:</span>
+                <span id="lviv-arena-status" class="text-xs font-semibold text-emerald-400">Арена відкрита (10:00–21:00)</span>
+              </div>
+            </section>
+
+            <!-- Віджет 2: Динамічний інформер погоди у Львові та Києві (Sinoptik / Open-Meteo API) -->
+            <section class="widget-card weather-widget" aria-labelledby="widget-weather-title">
+              <div class="flex items-center justify-between flex-wrap gap-2 border-b border-cyber-border pb-2.5 mb-3">
+                <h3 id="widget-weather-title" class="font-display font-bold text-sm text-white flex items-center gap-2">
+                  <i class="fas fa-cloud-bolt text-cyber-neon" aria-hidden="true"></i> Погода у місті (LAN Bootcamp)
+                </h3>
+                <span class="text-[11px] text-cyber-muted whitespace-nowrap">Live API</span>
+              </div>
+              <div id="weather-informer-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div class="bg-cyber-bg/70 border border-cyber-border rounded-lg p-3 space-y-1.5">
+                  <div class="flex items-center justify-between">
+                    <span class="font-display font-semibold text-white">м. Львів</span>
+                    <span id="weather-lviv-temp" class="font-display font-bold text-base text-cyber-cyan">+9°C</span>
+                  </div>
+                  <p class="text-cyber-muted">Вологість: <span id="weather-lviv-hum" class="text-white">74%</span></p>
+                  <p class="text-cyber-muted">Тиск: <span id="weather-lviv-press" class="text-white">738 мм</span></p>
+                  <p class="text-cyber-muted">Вітер: <span id="weather-lviv-wind" class="text-white">3.2 м/с</span></p>
+                </div>
+                <div class="bg-cyber-bg/70 border border-cyber-border rounded-lg p-3 space-y-1.5">
+                  <div class="flex items-center justify-between">
+                    <span class="font-display font-semibold text-white">м. Київ</span>
+                    <span id="weather-kyiv-temp" class="font-display font-bold text-base text-cyber-neon">+8°C</span>
+                  </div>
+                  <p class="text-cyber-muted">Вологість: <span id="weather-kyiv-hum" class="text-white">71%</span></p>
+                  <p class="text-cyber-muted">Статус: <span class="text-emerald-400">Online Праки</span></p>
+                  <p class="text-cyber-muted">Вітер: <span id="weather-kyiv-wind" class="text-white">2.8 м/с</span></p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Віджет 3: Інтерактивний конвертер валют для призових фондів та навчання -->
+            <section class="widget-card currency-widget" aria-labelledby="widget-currency-title">
+              <div class="flex items-center justify-between flex-wrap gap-2 border-b border-cyber-border pb-2.5 mb-3">
+                <h3 id="widget-currency-title" class="font-display font-bold text-sm text-white flex items-center gap-2">
+                  <i class="fas fa-coins text-cyber-cyan" aria-hidden="true"></i> Конвертер призових та тарифів
+                </h3>
+                <span class="text-[11px] font-display text-cyber-cyan whitespace-nowrap">UAH • USD • EUR</span>
+              </div>
+              <div class="space-y-3 text-xs">
+                <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3 gap-2.5">
+                  <div>
+                    <label for="currency-amount" class="block text-cyber-muted mb-1">Сума</label>
+                    <input id="currency-amount" type="number" value="3200" min="0" step="100" class="w-full px-3 py-2 bg-cyber-bg border border-cyber-border rounded-lg text-white font-semibold focus:outline-none focus:border-cyber-cyan min-h-[40px]">
+                  </div>
+                  <div>
+                    <label for="currency-from" class="block text-cyber-muted mb-1">З валюти</label>
+                    <select id="currency-from" class="w-full px-3 py-2 bg-cyber-bg border border-cyber-border rounded-lg text-white focus:outline-none focus:border-cyber-cyan min-h-[40px]">
+                      <option value="UAH" selected>UAH (₴)</option>
+                      <option value="USD">USD ($)</option>
+                      <option value="EUR">EUR (€)</option>
+                      <option value="PLN">PLN (zł)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="currency-to" class="block text-cyber-muted mb-1">У валюту</label>
+                    <select id="currency-to" class="w-full px-3 py-2 bg-cyber-bg border border-cyber-border rounded-lg text-white focus:outline-none focus:border-cyber-cyan min-h-[40px]">
+                      <option value="USD" selected>USD ($)</option>
+                      <option value="EUR">EUR (€)</option>
+                      <option value="PLN">PLN (zł)</option>
+                      <option value="UAH">UAH (₴)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="bg-cyber-bg/80 border border-cyber-border rounded-lg p-3 flex items-center justify-between flex-wrap gap-2">
+                  <span class="text-cyber-muted">Еквівалент за курсом:</span>
+                  <strong id="currency-result" class="font-display font-bold text-base text-cyber-cyan whitespace-nowrap">77,11 USD</strong>
+                </div>
+              </div>
+            </section>
+
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         10. ФОРМА ЗАХОПЛЕННЯ ЛІДІВ ТА ФІНАЛЬНИЙ CTA (LEAD CAPTURE & CTA)
+         ====================================================================== -->
+    <section id="tryout" class="py-12 md:py-24 bg-gradient-to-b from-cyber-bg to-cyber-surface border-b border-cyber-border" aria-labelledby="cta-title">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-cyber-surface border border-cyber-border rounded-2xl p-6 sm:p-10 md:p-12 shadow-card-dark space-y-6">
+          <div class="text-center space-y-3">
+            <p class="text-xs font-display font-semibold tracking-widest text-cyber-neon uppercase">Стартуй у Pro-Gaming</p>
+            <h2 id="cta-title" class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white">
+              Запишись на безкоштовний трайаут та аудит ігрового часу
+            </h2>
+            <p class="text-sm sm:text-base text-cyber-muted max-w-2xl mx-auto">
+              Залиште контакти — методист академії «КіберЛьвів» проведе тестування швидкості реакції, сформує індивідуальний план тренувань та узгодить зручний розклад із батьками.
+            </p>
+          </div>
+
+          <form class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2" onsubmit="event.preventDefault(); alert('Заявку на трайаут у КіберЛьвів успішно відправлено! Координатор зв’яжеться з вами протягом 15 хвилин.');">
+            <div>
+              <label for="lead-name" class="block text-xs font-medium text-cyber-muted mb-1.5">Ім’я або нікнейм гравця</label>
+              <input id="lead-name" type="text" placeholder="Олександр / s1mple_jr" required class="w-full px-4 py-3 bg-cyber-bg border border-cyber-border rounded-lg text-sm text-white placeholder-cyber-muted focus:outline-none focus:border-cyber-cyan focus-visible:ring-2 focus-visible:ring-cyber-cyan min-h-[44px]">
+            </div>
+            <div>
+              <label for="lead-game" class="block text-xs font-medium text-cyber-muted mb-1.5">Основна дисципліна</label>
+              <select id="lead-game" class="w-full px-4 py-3 bg-cyber-bg border border-cyber-border rounded-lg text-sm text-white focus:outline-none focus:border-cyber-cyan focus-visible:ring-2 focus-visible:ring-cyber-cyan min-h-[44px]">
+                <option value="cs2">CS2: Pro Aim &amp; Tactics</option>
+                <option value="valorant">Valorant: Radiant Protocol</option>
+                <option value="dota2">Dota 2: Macro &amp; Draft</option>
+                <option value="junior">CS2: Young Lions (12–15 років)</option>
+              </select>
+            </div>
+            <div>
+              <label for="lead-contact" class="block text-xs font-medium text-cyber-muted mb-1.5">Телефон або Telegram</label>
+              <input id="lead-contact" type="text" placeholder="+38 (067) 000-00-00" required class="w-full px-4 py-3 bg-cyber-bg border border-cyber-border rounded-lg text-sm text-white placeholder-cyber-muted focus:outline-none focus:border-cyber-cyan focus-visible:ring-2 focus-visible:ring-cyber-cyan min-h-[44px]">
+            </div>
+            <div class="sm:col-span-3 flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+              <p class="text-xs text-cyber-muted">
+                <i class="fas fa-lock text-cyber-cyan mr-1.5" aria-hidden="true"></i> Гарантуємо захист персональних даних згідно з Privacy Policy.
+              </p>
+              <button type="submit" class="cta-button w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 text-sm font-display font-semibold text-white bg-cyber-primary hover:bg-cyber-primary-hover rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan transition duration-200 min-h-[44px]">
+                <i class="fas fa-paper-plane mr-2" aria-hidden="true"></i> Зареєструватися на трайаут
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================================
+       11. СЕМАНТИЧНИЙ 4-КОЛОНКОВИЙ ПІДВАЛ (FOOTER)
+       Mobile: grid-cols-1, md: grid-cols-2, lg: grid-cols-4
+       ====================================================================== -->
+  <footer id="contacts" class="bg-cyber-footer text-cyber-muted border-t border-cyber-border pt-12 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-cyber-border">
+        
+        <!-- Колонка 1: Бренд, опис, соцмережі та статус системи -->
+        <div class="space-y-4">
+          <a class="flex items-center gap-3" href="#hero-title" title="Повернутися на початок сторінки КіберЛьвів">
+            <img src="assets/icons/logo.svg" alt="Логотип КіберЛьвів" class="w-9 h-9 rounded border border-cyber-border">
+            <span class="font-display font-bold text-lg tracking-wider text-white">
+              КІБЕР<span class="text-cyber-neon">ЛЬВІВ</span>
+            </span>
+          </a>
+          <p class="text-xs text-cyber-muted leading-relaxed">
+            Перша у Львові кіберспортивна академія з інженерною телеметрією ігрового часу, контролем здоров’я та підготовкою до про-сцени.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://discord.com" target="_blank" rel="noopener noreferrer" title="Офіційний сервер КіберЛьвів у Discord" class="w-9 h-9 rounded-lg bg-cyber-surface border border-cyber-border flex items-center justify-center text-cyber-muted hover:text-cyber-cyan hover:border-cyber-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan transition min-h-[36px] min-w-[36px]" aria-label="Спільнота Discord">
+              <i class="fab fa-discord" aria-hidden="true"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" title="YouTube-канал розборів матчів КіберЛьвів" class="w-9 h-9 rounded-lg bg-cyber-surface border border-cyber-border flex items-center justify-center text-cyber-muted hover:text-cyber-neon hover:border-cyber-neon focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan transition min-h-[36px] min-w-[36px]" aria-label="YouTube канал">
+              <i class="fab fa-youtube" aria-hidden="true"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" title="Сторінка КіберЛьвів в Instagram" class="w-9 h-9 rounded-lg bg-cyber-surface border border-cyber-border flex items-center justify-center text-cyber-muted hover:text-cyber-cyan hover:border-cyber-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan transition min-h-[36px] min-w-[36px]" aria-label="Instagram сторінка">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" title="Відкриті репозиторії аналітики КіберЛьвів на GitHub" class="w-9 h-9 rounded-lg bg-cyber-surface border border-cyber-border flex items-center justify-center text-cyber-muted hover:text-white hover:border-cyber-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan transition min-h-[36px] min-w-[36px]" aria-label="GitHub репозиторій">
+              <i class="fab fa-github" aria-hidden="true"></i>
+            </a>
+          </div>
+          <!-- Індикатор працездатності системи (System Status) -->
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-cyber-surface border border-cyber-border text-xs text-white">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 status-pulse" aria-hidden="true"></span>
+            <span>HUD Telemetry: Operational</span>
+          </div>
+        </div>
+
+        <!-- Колонка 2: Навігація та каталог програм -->
+        <div class="space-y-3">
+          <h3 class="font-display font-semibold text-sm text-white tracking-wider uppercase">Навчальні курси</h3>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#programs" title="Програма CS2: Pro Aim & Tactics" class="hover:text-cyber-cyan transition">CS2: Pro Aim &amp; Tactics</a></li>
+            <li><a href="#programs" title="Програма Valorant: Radiant Protocol" class="hover:text-cyber-cyan transition">Valorant: Radiant Protocol</a></li>
+            <li><a href="#programs" title="Програма Dota 2: Macro & Draft Lab" class="hover:text-cyber-cyan transition">Dota 2: Macro &amp; Draft Lab</a></li>
+            <li><a href="#programs" title="Програма CS2 Young Lions (Junior)" class="hover:text-cyber-cyan transition">CS2 Young Lions (Junior)</a></li>
+            <li><a href="#programs" title="Програма Esports Analytics & IGL" class="hover:text-cyber-cyan transition">Esports Analytics &amp; IGL</a></li>
+            <li><a href="#programs" title="Програма Weekend Bootcamp 360Hz" class="hover:text-cyber-cyan transition">Weekend Bootcamp 360Hz</a></li>
+          </ul>
+        </div>
+
+        <!-- Колонка 3: Корисні посилання та контакти -->
+        <div class="space-y-3">
+          <h3 class="font-display font-semibold text-sm text-white tracking-wider uppercase">Контакти арени</h3>
+          <address class="not-italic text-xs space-y-2.5">
+            <p class="flex items-start gap-2.5">
+              <i class="fas fa-location-dot text-cyber-neon mt-0.5" aria-hidden="true"></i>
+              <span>м. Львів, вул. Івана Франка, 61 (Буткемп «КіберЛьвів»)</span>
+            </p>
+            <p class="flex items-center gap-2.5">
+              <i class="fas fa-phone text-cyber-cyan" aria-hidden="true"></i>
+              <a href="tel:+380671234567" title="Зателефонувати в академію КіберЛьвів" class="hover:text-white transition">+38 (067) 123-45-67</a>
+            </p>
+            <p class="flex items-center gap-2.5">
+              <i class="fas fa-envelope text-cyber-neon" aria-hidden="true"></i>
+              <a href="mailto:hello@cyberlviv.ua" title="Написати на електронну пошту КіберЛьвів" class="hover:text-white transition">hello@cyberlviv.ua</a>
+            </p>
+            <p class="flex items-center gap-2.5">
+              <i class="fas fa-clock text-cyber-cyan" aria-hidden="true"></i>
+              <span>Пн–Нд: 10:00 – 21:00 (безпечний графік)</span>
+            </p>
+          </address>
+        </div>
+
+        <!-- Колонка 4: Форма підписки на розсилку -->
+        <div class="space-y-3">
+          <h3 class="font-display font-semibold text-sm text-white tracking-wider uppercase">Дайджест аналітики</h3>
+          <p class="text-xs text-cyber-muted leading-relaxed">
+            Отримуй розбір оновлень CS2, гайди розкидок та розклад відкритих трайаутів у Львові раз на місяць.
+          </p>
+          <form class="space-y-2" onsubmit="event.preventDefault(); alert('Дякуємо! Ви підписані на аналітичний дайджест КіберЛьвів.');">
+            <label for="newsletter-email" class="sr-only">Ваша електронна пошта</label>
+            <input type="email" id="newsletter-email" placeholder="gamer@cyberlviv.ua" required class="w-full px-3 py-2.5 bg-cyber-surface border border-cyber-border rounded-lg text-xs text-white placeholder-cyber-muted focus:outline-none focus:border-cyber-cyan min-h-[44px]">
+            <button type="submit" class="cta-button w-full inline-flex items-center justify-center px-4 py-2.5 text-xs font-display font-semibold text-white bg-cyber-primary hover:bg-cyber-primary-hover rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan transition duration-200 min-h-[44px]">
+              <i class="fas fa-paper-plane mr-2" aria-hidden="true"></i> Підписатися
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Нижня смуга футера: авторські права та юридичні посилання -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-cyber-muted">
+        <p>&copy; 2026 Кіберспортивна академія «КіберЛьвів». Виконав: ст. гр. ПП-24 Іванців Максим. Усі права захищено.</p>
+        <div class="flex items-center gap-6">
+          <a href="#contacts" title="Ознайомитися з політикою конфіденційності" class="hover:text-white transition">Політика конфіденційності (Privacy Policy)</a>
+          <a href="#contacts" title="Ознайомитися з умовами використання сервісу" class="hover:text-white transition">Умови використання (Terms of Service)</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Асинхронний скрипт динамічних інформерів погоди, часу та валют (Етап 7.3) -->
+  <script src="js/widgets.js" async defer></script>
+
+  <!-- Інтерактивний скрипт для мобільного меню -->
+  <script>
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconBars = document.getElementById('menu-icon-bars');
+    const iconClose = document.getElementById('menu-icon-close');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+        mobileMenu.classList.toggle('hidden');
+        iconBars.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+      });
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          iconBars.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        });
+      });
+    }
+  </script>
+</body>
+</html>
