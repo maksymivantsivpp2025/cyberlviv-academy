@@ -1,5 +1,7 @@
 # Кіберспортивна академія «КіберЛьвів» (Cyber-Athletic HUD)
 
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-00f0ff?style=for-the-badge&logo=github)](https://maksymivantsivpp2025.github.io/cyberlviv-academy/) [![Netlify Status](https://img.shields.io/badge/Netlify-Deployed-d91a52?style=for-the-badge&logo=netlify)](https://cyberlviv-lab6.netlify.app/)
+
 Офіційний адаптивний лендинг кіберспортивної академії **«КіберЛьвів»** з інтегрованим калькулятором аналізу ігрового часу, розрахунком плану тренувань та оперативними інформерами арени у м. Львів.
 
 Проєкт розроблено в межах дисципліни **«Технології веброзробки та дизайну»** (Лабораторні роботи №1–8) у Національному університеті «Львівська політехніка» (Кафедра САП).
