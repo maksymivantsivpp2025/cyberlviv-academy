@@ -350,7 +350,7 @@ function validateMessage() {
 
   // Оновлення лічильника символів у реальному часі
   if (charCounter) {
-    charCounter.textContent = `${value.length} / ${MAX_MESSAGE_LENGTH}`;
+    charCounter.textContent = `${value.length} / ${MAX_MESSAGE_LENGTH} символів`;
     charCounter.classList.toggle('text-cyber-cyan', value.length >= MIN_MESSAGE_LENGTH && value.length <= MAX_MESSAGE_LENGTH);
     charCounter.classList.toggle('text-red-400', value.length > MAX_MESSAGE_LENGTH);
   }
@@ -474,7 +474,7 @@ function resetFormUIState() {
 
   const charCounter = document.getElementById('messageCounter');
   if (charCounter) {
-    charCounter.textContent = `0 / ${MAX_MESSAGE_LENGTH}`;
+    charCounter.textContent = `0 / ${MAX_MESSAGE_LENGTH} символів`;
     charCounter.classList.remove('text-cyber-cyan', 'text-red-400');
   }
 
@@ -526,6 +526,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     element.addEventListener('input', () => {
+      // Для поля phone з автопідстановкою +380 не показуємо помилку, поки введено лише базовий префікс
+      if (element.id === 'phone' && !touchedFields.has('phone') && element.value.trim() === '+380') {
+        return;
+      }
       // Якщо користувач уже взаємодіяв із полем або почав вводити текст — оновлюємо стан
       if (touchedFields.has(element.id) || element.value.trim().length > 0) {
         touchedFields.add(element.id);
