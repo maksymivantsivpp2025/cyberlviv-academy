@@ -822,52 +822,369 @@
     </section>
 
     <!-- ======================================================================
-         10. ФОРМА ЗАХОПЛЕННЯ ЛІДІВ ТА ФІНАЛЬНИЙ CTA (LEAD CAPTURE & CTA)
+         10. АДАПТИВНА ФОРМА ЗВОРОТНОГО ЗВ'ЯЗКУ ТА КЛІЄНТСЬКА ВАЛІДАЦІЯ (ЛР №9)
+         Mobile-First: grid-cols-1 (смартфони) -> md:grid-cols-2 (планшети/десктоп)
+         4 стани полів: Normal / Focus / Error (border-red-500) / Success (border-green-500)
          ====================================================================== -->
     <section id="tryout" class="py-12 md:py-24 bg-gradient-to-b from-cyber-bg to-cyber-surface border-b border-cyber-border" aria-labelledby="cta-title">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-cyber-surface border border-cyber-border rounded-2xl p-6 sm:p-10 md:p-12 shadow-card-dark space-y-6">
+        <div class="hud-card-frame bg-cyber-surface border border-cyber-border rounded-2xl p-6 sm:p-10 md:p-12 shadow-card-dark space-y-8">
+          
+          <!-- Заголовок та підзаголовок секції форми -->
           <div class="text-center space-y-3">
-            <p class="text-xs font-display font-semibold tracking-widest text-cyber-neon uppercase">Стартуй у Pro-Gaming</p>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyber-bg border border-cyber-border text-xs font-display font-semibold tracking-widest text-cyber-cyan uppercase">
+              <i class="fas fa-shield-halved text-cyber-neon" aria-hidden="true"></i>
+              <span>Зворотний зв'язок • Клієнтська RegEx-валідація</span>
+            </div>
             <h2 id="cta-title" class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white">
-              Запишись на безкоштовний трайаут та аудит ігрового часу
+              Запишись на безкоштовний трайаут або постав запитання тренеру
             </h2>
-            <p class="text-sm sm:text-base text-cyber-muted max-w-2xl mx-auto">
-              Залиште контакти — методист академії «КіберЛьвів» проведе тестування швидкості реакції, сформує індивідуальний план тренувань та узгодить зручний розклад із батьками.
+            <p class="text-sm sm:text-base text-cyber-muted max-w-2xl mx-auto leading-relaxed">
+              Заповніть адаптивну форму зворотного зв'язку — координатор академії «КіберЛьвів» проведе аудит ігрового часу, відповість на запитання та узгодить зручний розклад тренувань.
             </p>
           </div>
 
-          <form class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2" onsubmit="event.preventDefault(); alert('Заявку на трайаут у КіберЛьвів успішно відправлено! Координатор зв’яжеться з вами протягом 15 хвилин.');">
-            <div>
-              <label for="lead-name" class="block text-xs font-medium text-cyber-muted mb-1.5">Ім’я або нікнейм гравця</label>
-              <input id="lead-name" type="text" placeholder="Олександр / s1mple_jr" required class="w-full px-4 py-3 bg-cyber-bg border border-cyber-border rounded-lg text-sm text-white placeholder-cyber-muted focus:outline-none focus:border-cyber-cyan focus-visible:ring-2 focus-visible:ring-cyber-cyan min-h-[44px]">
+          <!-- Панель індикації 4 UI-станів форми (Normal / Focus / Error / Success) -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1 text-[11px] font-display" aria-label="Система візуальних станів полів форми">
+            <div class="bg-cyber-bg/80 border border-cyber-border rounded-lg px-3 py-2 flex items-center gap-2 text-cyber-muted">
+              <span class="w-2.5 h-2.5 rounded-full bg-gray-500 shrink-0" aria-hidden="true"></span>
+              <span>1. Normal (Базовий)</span>
             </div>
-            <div>
-              <label for="lead-game" class="block text-xs font-medium text-cyber-muted mb-1.5">Основна дисципліна</label>
-              <select id="lead-game" class="w-full px-4 py-3 bg-cyber-bg border border-cyber-border rounded-lg text-sm text-white focus:outline-none focus:border-cyber-cyan focus-visible:ring-2 focus-visible:ring-cyber-cyan min-h-[44px]">
-                <option value="cs2">CS2: Pro Aim &amp; Tactics</option>
-                <option value="valorant">Valorant: Radiant Protocol</option>
-                <option value="dota2">Dota 2: Macro &amp; Draft</option>
-                <option value="junior">CS2: Young Lions (12–15 років)</option>
-              </select>
+            <div class="bg-cyber-bg/80 border border-cyber-cyan/50 rounded-lg px-3 py-2 flex items-center gap-2 text-cyber-cyan">
+              <span class="w-2.5 h-2.5 rounded-full bg-cyber-cyan shrink-0" aria-hidden="true"></span>
+              <span>2. Focus (Активний)</span>
             </div>
-            <div>
-              <label for="lead-contact" class="block text-xs font-medium text-cyber-muted mb-1.5">Телефон або Telegram</label>
-              <input id="lead-contact" type="text" placeholder="+38 (067) 000-00-00" required class="w-full px-4 py-3 bg-cyber-bg border border-cyber-border rounded-lg text-sm text-white placeholder-cyber-muted focus:outline-none focus:border-cyber-cyan focus-visible:ring-2 focus-visible:ring-cyber-cyan min-h-[44px]">
+            <div class="bg-cyber-bg/80 border border-red-500/50 rounded-lg px-3 py-2 flex items-center gap-2 text-red-400">
+              <span class="w-2.5 h-2.5 rounded-full bg-red-500 shrink-0" aria-hidden="true"></span>
+              <span>3. Error (Помилка)</span>
             </div>
-            <div class="sm:col-span-3 flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
-              <p class="text-xs text-cyber-muted">
-                <i class="fas fa-lock text-cyber-cyan mr-1.5" aria-hidden="true"></i> Гарантуємо захист персональних даних згідно з Privacy Policy.
+            <div class="bg-cyber-bg/80 border border-green-500/50 rounded-lg px-3 py-2 flex items-center gap-2 text-green-400">
+              <span class="w-2.5 h-2.5 rounded-full bg-green-500 shrink-0" aria-hidden="true"></span>
+              <span>4. Success (Валідно)</span>
+            </div>
+          </div>
+
+          <!-- Семантична вебформа зворотного зв'язку (Етап 3–12) -->
+          <form id="feedbackForm" action="#" method="POST" novalidate class="space-y-6">
+            
+            <!-- Сітка полів: 1 колонка на мобільних, 2 колонки від md (Етап 4) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+              
+              <!-- Поле 1: Ім'я користувача / гравця -->
+              <div>
+                <label for="username" class="block text-xs sm:text-sm font-display font-semibold text-white mb-2">
+                  Ім’я гравця або одного з батьків <span class="text-cyber-neon" aria-hidden="true">*</span>
+                </label>
+                <div class="relative">
+                  <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    autocomplete="name"
+                    required
+                    minlength="2"
+                    maxlength="50"
+                    placeholder="Наприклад: Максим Іванців"
+                    aria-required="true"
+                    aria-invalid="false"
+                    aria-describedby="nameError"
+                    class="w-full px-4 py-3 pr-10 bg-cyber-bg border border-cyber-border rounded-lg text-sm text-white placeholder-cyber-muted/60 hover:border-cyber-cyan/50 focus:outline-none focus:border-cyber-cyan focus-visible:ring-2 focus-visible:ring-cyber-cyan/50 transition-colors duration-200 min-h-[48px]"
+                  >
+                  <span id="usernameIconError" class="hidden absolute inset-y-0 right-3 flex items-center text-red-500 pointer-events-none" aria-hidden="true">
+                    <i class="fas fa-circle-exclamation"></i>
+                  </span>
+                  <span id="usernameIconSuccess" class="hidden absolute inset-y-0 right-3 flex items-center text-green-500 pointer-events-none" aria-hidden="true">
+                    <i class="fas fa-circle-check"></i>
+                  </span>
+                </div>
+                <p id="nameError" role="alert" aria-live="polite" class="hidden mt-1.5 text-xs text-red-400 flex items-start gap-1.5">
+                  <i class="fas fa-triangle-exclamation mt-0.5 shrink-0" aria-hidden="true"></i>
+                  <span class="error-text">Ім'я повинно містити не менше 2 символів.</span>
+                </p>
+              </div>
+
+              <!-- Поле 2: Електронна пошта (type="email" для оптимізованої мобільної клавіатури з @ та .) -->
+              <div>
+                <label for="email" class="block text-xs sm:text-sm font-display font-semibold text-white mb-2">
+                  Електронна пошта (Email) <span class="text-cyber-neon" aria-hidden="true">*</span>
+                </label>
+                <div class="relative">
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    inputmode="email"
+                    autocomplete="email"
+                    required
+                    placeholder="gamer.2026@lpnu.ua"
+                    aria-required="true"
+                    aria-invalid="false"
+                    aria-describedby="emailError"
+                    class="w-full px-4 py-3 pr-10 bg-cyber-bg border border-cyber-border rounded-lg text-sm text-white placeholder-cyber-muted/60 hover:border-cyber-cyan/50 focus:outline-none focus:border-cyber-cyan focus-visible:ring-2 focus-visible:ring-cyber-cyan/50 transition-colors duration-200 min-h-[48px]"
+                  >
+                  <span id="emailIconError" class="hidden absolute inset-y-0 right-3 flex items-center text-red-500 pointer-events-none" aria-hidden="true">
+                    <i class="fas fa-circle-exclamation"></i>
+                  </span>
+                  <span id="emailIconSuccess" class="hidden absolute inset-y-0 right-3 flex items-center text-green-500 pointer-events-none" aria-hidden="true">
+                    <i class="fas fa-circle-check"></i>
+                  </span>
+                </div>
+                <p id="emailError" role="alert" aria-live="polite" class="hidden mt-1.5 text-xs text-red-400 flex items-start gap-1.5">
+                  <i class="fas fa-triangle-exclamation mt-0.5 shrink-0" aria-hidden="true"></i>
+                  <span class="error-text">Введіть коректну електронну адресу.</span>
+                </p>
+              </div>
+
+              <!-- Поле 3: Номер телефону (type="tel" викликає цифрову Numpad-клавіатуру на смартфонах) -->
+              <div>
+                <label for="phone" class="block text-xs sm:text-sm font-display font-semibold text-white mb-2">
+                  Номер телефону (формат +380XXXXXXXXX) <span class="text-cyber-neon" aria-hidden="true">*</span>
+                </label>
+                <div class="relative">
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    inputmode="tel"
+                    autocomplete="tel"
+                    required
+                    maxlength="16"
+                    placeholder="+380501234567"
+                    aria-required="true"
+                    aria-invalid="false"
+                    aria-describedby="phoneError"
+                    class="w-full px-4 py-3 pr-10 bg-cyber-bg border border-cyber-border rounded-lg text-sm text-white placeholder-cyber-muted/60 hover:border-cyber-cyan/50 focus:outline-none focus:border-cyber-cyan focus-visible:ring-2 focus-visible:ring-cyber-cyan/50 transition-colors duration-200 min-h-[48px]"
+                  >
+                  <span id="phoneIconError" class="hidden absolute inset-y-0 right-3 flex items-center text-red-500 pointer-events-none" aria-hidden="true">
+                    <i class="fas fa-circle-exclamation"></i>
+                  </span>
+                  <span id="phoneIconSuccess" class="hidden absolute inset-y-0 right-3 flex items-center text-green-500 pointer-events-none" aria-hidden="true">
+                    <i class="fas fa-circle-check"></i>
+                  </span>
+                </div>
+                <p id="phoneError" role="alert" aria-live="polite" class="hidden mt-1.5 text-xs text-red-400 flex items-start gap-1.5">
+                  <i class="fas fa-triangle-exclamation mt-0.5 shrink-0" aria-hidden="true"></i>
+                  <span class="error-text">Формат має бути строго українським: +380XXXXXXXXX.</span>
+                </p>
+                <!-- Додаткова UX-функція для обробки Edge Cases (Етап 10): автонормалізація 050... -> +38050... -->
+                <div id="phoneNormalizeBox" class="hidden mt-2 flex items-center justify-between gap-2 bg-cyber-bg/90 border border-cyber-cyan/40 rounded-lg px-3 py-1.5 text-xs">
+                  <span class="text-cyber-muted">Автокорекція формату UX:</span>
+                  <button
+                    type="button"
+                    id="phoneNormalizeBtn"
+                    class="font-display font-semibold text-cyber-cyan hover:text-white underline focus:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan rounded px-1.5 py-0.5"
+                  >
+                    Перетворити на +380...
+                  </button>
+                </div>
+              </div>
+
+              <!-- Поле 4: Тема звернення та ігрова дисципліна (2-га колонка в другому ряду на десктопі) -->
+              <div>
+                <label for="topic" class="block text-xs sm:text-sm font-display font-semibold text-white mb-2">
+                  Тема звернення / Програма підготовки <span class="text-cyber-neon" aria-hidden="true">*</span>
+                </label>
+                <div class="relative">
+                  <select
+                    id="topic"
+                    name="topic"
+                    required
+                    aria-required="true"
+                    aria-invalid="false"
+                    aria-describedby="topicError"
+                    class="w-full px-4 py-3 pr-10 bg-cyber-bg border border-cyber-border rounded-lg text-sm text-white hover:border-cyber-cyan/50 focus:outline-none focus:border-cyber-cyan focus-visible:ring-2 focus-visible:ring-cyber-cyan/50 transition-colors duration-200 min-h-[48px]"
+                  >
+                    <option value="cs2">CS2: Pro Aim &amp; Game Sense (Faceit 7–10)</option>
+                    <option value="valorant">Valorant: Radiant Protocol (Ascendant+)</option>
+                    <option value="dota2">Dota 2: Macro &amp; Draft Lab (5500+ MMR)</option>
+                    <option value="junior">CS2: Young Lions Junior (Вік 12–15 років)</option>
+                    <option value="analytics">Esports Analytics &amp; IGL Track</option>
+                    <option value="consultation">Консультація для батьків та аудит розкладу</option>
+                  </select>
+                  <span id="topicIconSuccess" class="hidden absolute inset-y-0 right-8 flex items-center text-green-500 pointer-events-none" aria-hidden="true">
+                    <i class="fas fa-circle-check"></i>
+                  </span>
+                </div>
+                <p id="topicError" role="alert" aria-live="polite" class="hidden mt-1.5 text-xs text-red-400 flex items-start gap-1.5">
+                  <i class="fas fa-triangle-exclamation mt-0.5 shrink-0" aria-hidden="true"></i>
+                  <span class="error-text">Оберіть програму або тему звернення.</span>
+                </p>
+              </div>
+
+              <!-- Поле 5: Текст повідомлення (на всю ширину у 2 колонки: md:col-span-2) -->
+              <div class="md:col-span-2">
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <label for="message" class="block text-xs sm:text-sm font-display font-semibold text-white">
+                    Текст повідомлення (ваш ELO/MMR, ігровий досвід або запитання) <span class="text-cyber-neon" aria-hidden="true">*</span>
+                  </label>
+                  <span id="messageCounter" class="text-xs font-display text-cyber-muted" aria-live="polite">0 / 500</span>
+                </div>
+                <div class="relative">
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    required
+                    minlength="10"
+                    maxlength="500"
+                    placeholder="Опишіть ваш поточний рейтинг, кількість ігрових годин на день або побажання щодо розкладу трайауту (мінімум 10 символів)..."
+                    aria-required="true"
+                    aria-invalid="false"
+                    aria-describedby="messageError"
+                    class="w-full px-4 py-3 pr-10 bg-cyber-bg border border-cyber-border rounded-lg text-sm text-white placeholder-cyber-muted/60 hover:border-cyber-cyan/50 focus:outline-none focus:border-cyber-cyan focus-visible:ring-2 focus-visible:ring-cyber-cyan/50 transition-colors duration-200 resize-y min-h-[112px]"
+                  ></textarea>
+                  <span id="messageIconError" class="hidden absolute top-3.5 right-3 text-red-500 pointer-events-none" aria-hidden="true">
+                    <i class="fas fa-circle-exclamation"></i>
+                  </span>
+                  <span id="messageIconSuccess" class="hidden absolute top-3.5 right-3 text-green-500 pointer-events-none" aria-hidden="true">
+                    <i class="fas fa-circle-check"></i>
+                  </span>
+                </div>
+                <p id="messageError" role="alert" aria-live="polite" class="hidden mt-1.5 text-xs text-red-400 flex items-start gap-1.5">
+                  <i class="fas fa-triangle-exclamation mt-0.5 shrink-0" aria-hidden="true"></i>
+                  <span class="error-text">Повідомлення повинно містити щонайменше 10 символів.</span>
+                </p>
+              </div>
+
+              <!-- Поле 6: Чекбокс згоди з політикою конфіденційності (md:col-span-2) -->
+              <div class="md:col-span-2">
+                <div class="flex items-start gap-3 p-3.5 rounded-xl bg-cyber-bg/70 border border-cyber-border hover:border-cyber-cyan/40 transition-colors">
+                  <input
+                    type="checkbox"
+                    id="agreement"
+                    name="agreement"
+                    required
+                    aria-required="true"
+                    aria-invalid="false"
+                    aria-describedby="agreementError"
+                    class="mt-0.5 w-5 h-5 rounded border-cyber-border bg-cyber-bg text-cyber-primary focus:ring-2 focus:ring-cyber-cyan focus:ring-offset-2 focus:ring-offset-cyber-bg cursor-pointer shrink-0 accent-cyber-primary"
+                  >
+                  <label for="agreement" class="text-xs sm:text-sm text-cyber-muted cursor-pointer select-none leading-relaxed">
+                    Я погоджуюсь із <a href="#contacts" class="text-cyber-cyan hover:underline font-medium">Політикою конфіденційності (Privacy Policy)</a> та надаю згоду на обробку персональних даних для запису в академію «КіберЛьвів» <span class="text-cyber-neon" aria-hidden="true">*</span>
+                  </label>
+                </div>
+                <p id="agreementError" role="alert" aria-live="polite" class="hidden mt-1.5 text-xs text-red-400 flex items-start gap-1.5">
+                  <i class="fas fa-triangle-exclamation mt-0.5 shrink-0" aria-hidden="true"></i>
+                  <span class="error-text">Необхідно підтвердити згоду з політикою конфіденційності.</span>
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Нижня панель дій форми: Кнопка «Надіслати» та кнопка «Очистити» -->
+            <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 border-t border-cyber-border">
+              <p class="text-xs text-cyber-muted flex items-center gap-2">
+                <i class="fas fa-lock text-cyber-cyan" aria-hidden="true"></i>
+                <span>Захищено двоконтурною клієнтською RegEx-валідацією (WCAG 2.2 AA).</span>
               </p>
-              <button type="submit" class="cta-button w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 text-sm font-display font-semibold text-white bg-cyber-primary hover:bg-cyber-primary-hover rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan transition duration-200 min-h-[44px]">
-                <i class="fas fa-paper-plane mr-2" aria-hidden="true"></i> Зареєструватися на трайаут
-              </button>
+              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <button
+                  type="button"
+                  id="resetFormBtn"
+                  class="w-full sm:w-auto inline-flex items-center justify-center px-5 py-3 text-xs font-display font-semibold text-cyber-muted hover:text-white bg-cyber-bg border border-cyber-border hover:border-cyber-cyan/50 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan transition duration-200 min-h-[48px]"
+                >
+                  <i class="fas fa-rotate-left mr-2" aria-hidden="true"></i> Очистити
+                </button>
+                <button
+                  type="submit"
+                  id="submitBtn"
+                  class="cta-button w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 text-sm font-display font-semibold tracking-wider text-white bg-cyber-primary hover:bg-cyber-primary-hover active:scale-[0.99] rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-cyber-surface transition duration-200 min-h-[48px] whitespace-nowrap"
+                >
+                  <i class="fas fa-paper-plane mr-2" aria-hidden="true"></i> Надіслати
+                </button>
+              </div>
             </div>
+
           </form>
+
         </div>
       </div>
     </section>
   </main>
+
+  <!-- ======================================================================
+       МОДАЛЬНЕ ВІКНО УСПІШНОГО НАДСИЛАННЯ ФОРМИ (MODAL POP-UP — ЕТАП 11, 12, 19)
+       Доступність: role="dialog", aria-modal="true", закриття через Кнопку, Оверлей та Escape
+       ====================================================================== -->
+  <div
+    id="successModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle"
+    aria-describedby="modalDesc"
+    aria-hidden="true"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4 transition-opacity duration-200"
+  >
+    <div
+      id="modalCard"
+      class="relative w-full max-w-lg bg-cyber-surface border-2 border-green-500/80 rounded-2xl p-6 sm:p-8 shadow-2xl space-y-5 text-white"
+    >
+      <!-- Верхня панель модального вікна з іконкою успіху та кнопкою закриття -->
+      <div class="flex items-start justify-between gap-4">
+        <div class="w-12 h-12 rounded-xl bg-green-500/15 border border-green-500/50 flex items-center justify-center text-green-400 shrink-0">
+          <i class="fas fa-circle-check text-2xl" aria-hidden="true"></i>
+        </div>
+        <button
+          type="button"
+          id="closeModalSecondaryBtn"
+          aria-label="Закрити модальне вікно"
+          class="p-2 rounded-lg text-cyber-muted hover:text-white hover:bg-cyber-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan transition min-h-[40px] min-w-[40px]"
+        >
+          <i class="fas fa-times text-lg" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <!-- Основний текст повідомлення згідно з Етапом 11 та Етапом 19 -->
+      <div class="space-y-2">
+        <p class="text-xs font-display font-bold tracking-widest text-green-400 uppercase">
+          Статус: Валідацію пройдено успішно
+        </p>
+        <h3 id="modalTitle" class="text-xl sm:text-2xl font-display font-bold text-white">
+          Дякуємо! Ваше повідомлення успішно надіслано.
+        </h3>
+        <p id="modalDesc" class="text-xs sm:text-sm text-cyber-muted leading-relaxed">
+          Форма успішно пройшла клієнтську валідацію. Демонстрація успішного надсилання: всі поля перевірено регулярними виразами (RegEx) та очищено методом <code class="text-cyber-cyan font-mono">form.reset()</code>.
+        </p>
+      </div>
+
+      <!-- Картка-зведення перевірених даних гравця -->
+      <div class="bg-cyber-bg/90 border border-cyber-border rounded-xl p-4 space-y-2 text-xs">
+        <p class="font-display font-semibold text-cyber-cyan uppercase tracking-wider mb-1">
+          Перевірені дані заявки:
+        </p>
+        <div class="flex items-center justify-between gap-2 border-b border-cyber-border/60 pb-1.5">
+          <span class="text-cyber-muted">Ім’я:</span>
+          <strong id="modalSummaryName" class="text-white font-medium">—</strong>
+        </div>
+        <div class="flex items-center justify-between gap-2 border-b border-cyber-border/60 pb-1.5">
+          <span class="text-cyber-muted">Email:</span>
+          <strong id="modalSummaryEmail" class="text-cyber-cyan font-mono">—</strong>
+        </div>
+        <div class="flex items-center justify-between gap-2 border-b border-cyber-border/60 pb-1.5">
+          <span class="text-cyber-muted">Телефон (UA):</span>
+          <strong id="modalSummaryPhone" class="text-green-400 font-mono">—</strong>
+        </div>
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-cyber-muted">Програма:</span>
+          <strong id="modalSummaryTopic" class="text-white font-medium text-right">—</strong>
+        </div>
+      </div>
+
+      <!-- Нижня кнопка «Закрити» та підказка про клавішу Escape -->
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <span class="text-[11px] text-cyber-muted">
+          Натисніть <kbd class="px-1.5 py-0.5 bg-cyber-bg border border-cyber-border rounded text-white font-mono">Esc</kbd> або поза вікном для закриття
+        </span>
+        <button
+          type="button"
+          id="closeModalBtn"
+          class="cta-button w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 text-xs sm:text-sm font-display font-semibold text-white bg-cyber-primary hover:bg-cyber-primary-hover rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-cyber-cyan transition min-h-[44px]"
+        >
+          <i class="fas fa-check mr-2" aria-hidden="true"></i> Закрити
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- ======================================================================
        11. СЕМАНТИЧНИЙ 4-КОЛОНКОВИЙ ПІДВАЛ (FOOTER)
@@ -977,6 +1294,9 @@
 
   <!-- Асинхронний скрипт динамічних інформерів погоди, часу та валют (Етап 7.3) -->
   <script src="js/widgets.js" async defer></script>
+
+  <!-- Модуль клієнтської RegEx-валідації форми зворотного зв'язку та модального вікна (ЛР №9) -->
+  <script src="assets/js/validation.js" defer></script>
 
   <!-- Інтерактивний скрипт для мобільного меню -->
   <script>

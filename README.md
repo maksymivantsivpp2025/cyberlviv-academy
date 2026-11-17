@@ -1,10 +1,10 @@
 # Кіберспортивна академія «КіберЛьвів» (Cyber-Athletic HUD)
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-00f0ff?style=for-the-badge&logo=github)](https://maksymivantsivpp2025.github.io/cyberlviv-academy/) [![Netlify Status](https://img.shields.io/badge/Netlify-Deployed-d91a52?style=for-the-badge&logo=netlify)](https://cyberlviv-lab6.netlify.app/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-00f0ff?style=for-the-badge&logo=github)](https://maksymivantsivpp2025.github.io/cyberlviv-academy/) [![Netlify Status](https://img.shields.io/badge/Netlify-Deployed-d91a52?style=for-the-badge&logo=netlify)](https://cyberlviv-lab6.netlify.app/) [![Vercel](https://img.shields.io/badge/Vercel-Live-000000?style=for-the-badge&logo=vercel)](https://cyberlviv-academy.vercel.app/)
 
-Офіційний адаптивний лендинг кіберспортивної академії **«КіберЛьвів»** з інтегрованим калькулятором аналізу ігрового часу, розрахунком плану тренувань та оперативними інформерами арени у м. Львів.
+Офіційний адаптивний лендинг кіберспортивної академії **«КіберЛьвів»** з інтегрованим калькулятором аналізу ігрового часу, розрахунком плану тренувань, оперативними інформерами арени та адаптивною формою зворотного зв'язку з клієнтською RegEx-валідацією і кастомним модальним вікном.
 
-Проєкт розроблено в межах дисципліни **«Технології веброзробки та дизайну»** (Лабораторні роботи №1–8) у Національному університеті «Львівська політехніка» (Кафедра САП).
+Проєкт розроблено в межах дисципліни **«Технології веброзробки та дизайну»** (Лабораторні роботи №1–9) у Національному університеті «Львівська політехніка» (Кафедра САП).
 
 ![Прев'ю кіберарени КіберЛьвів](assets/images/hero-arena.jpg)
 
@@ -25,21 +25,27 @@
   - Точний час у Львові (`Intl.DateTimeFormat`, часовий пояс `Europe/Kyiv`) та статус роботи арени;
   - Погода в реальному часі для Львова та Києва через **Open-Meteo API**;
   - Інтерактивний конвертер валют (`UAH / USD / EUR / PLN`) для розрахунку вартості навчання та турнірних призових.
+- **Адаптивна форма зворотного зв'язку та клієнтська валідація (ЛР №9):**
+  - Семантична верстка форми (`<form>`, `<label for>`, `<input>`, `<select>`, `<textarea>`, `<button>`) з підтримкою **WCAG 2.2 AA** (`aria-describedby`, `aria-invalid`, `role="alert"`);
+  - 4 візуальні UI-стани кожного поля (`Normal`, `Focus`, `Error`, `Success`);
+  - Перевірка регулярними виразами (`REGEX_EMAIL`, `REGEX_PHONE = /^\+380\d{9}$/`, `REGEX_NAME`) та UX-обробка граничних випадків (Edge Cases);
+  - Кастомне доступне модальне вікно (`role="dialog"`, `aria-modal="true"`) з закриттям через кнопку, клік по оверлею та клавішу `Escape`.
 
 ---
 
 ## Стек технологій
 
-- **Розмітка:** Семантичний HTML5 (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<footer>`)
+- **Розмітка:** Семантичний HTML5 (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<form>`, `<footer>`)
 - **Стилізація:** Tailwind CSS (Utility-First) + кастомні CSS3-змінні (`:root`) у `css/style.css`
-- **Скрипти:** Нативний JavaScript (ES6+, Fetch API, DOM API) у `js/widgets.js`
+- **Скрипти:** Нативний JavaScript (ES6+, RegEx, Fetch API, DOM API) у `assets/js/validation.js` та `js/widgets.js`
 - **Іконки та типографіка:** Font Awesome 6, Google Fonts (`Orbitron`, `Inter`), оптимізована векторна графіка SVG
-- **Контроль версій та CI/CD Деплой:** Git, GitHub, GitHub Pages, Netlify
+- **Контроль версій та CI/CD Деплой:** Git, GitHub, Vercel, GitHub Pages, Netlify
 
 ---
 
 ## Live Demo (Опубліковані версії сайту)
 
+- **Vercel (CI/CD Production):** [https://cyberlviv-academy.vercel.app/](https://cyberlviv-academy.vercel.app/)
 - **GitHub Pages:** [https://maksymivantsivpp2025.github.io/cyberlviv-academy/](https://maksymivantsivpp2025.github.io/cyberlviv-academy/)
 - **Netlify Hosting:** [https://cyberlviv-lab6.netlify.app/](https://cyberlviv-lab6.netlify.app/)
 
@@ -52,10 +58,13 @@ cyberlviv-academy/
 ├── assets/
 │   ├── fonts/          # Локальні шрифти Inter та Orbitron (.woff2)
 │   ├── icons/          # Векторний логотип та іконки переваг (.svg)
-│   └── images/         # Медіаактиви Hero-секції (.jpg, .mp4, .webm, .svg)
+│   ├── images/         # Медіаактиви Hero-секції (.jpg, .mp4, .webm, .svg)
+│   └── js/
+│       └── validation.js # Модуль клієнтської RegEx-валідації форми та модального вікна (ЛР №9)
 ├── css/
 │   └── style.css       # Кастомні змінні :root, стилі фреймів та анімації HUD
 ├── js/
+│   ├── validation.js   # Дзеркальна копія модуля клієнтської валідації
 │   └── widgets.js      # Асинхронний модуль погоди, точного часу та конвертера валют
 ├── .gitignore          # Правила ігнорування службових і тимчасових файлів
 ├── index.html          # Головна сторінка лендингу «КіберЛьвів»
