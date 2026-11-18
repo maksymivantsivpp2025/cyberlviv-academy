@@ -513,26 +513,41 @@ document.addEventListener('DOMContentLoaded', () => {
     { element: messageInput, validate: validateMessage }
   ];
 
-  // Динамічна валідація (Етап 9):
-  // - Помилки не показуються відразу після відкриття сторінки;
-  // - blur виконує фінальну перевірку поля після того, як користувач його залишив;
-  // - input оновлює стан у реальному часі після початку взаємодії.
+  // Динамічна валідація за патерном «Пізня помилка, миттєве виправлення» (Етап 9):
+  // - Під час першого набору тексту червоні помилки НЕ вискакують на кожній літері;
+  // - Коли користувач завершив введення і залишив поле (подія blur) — виконується перевірка;
+  // - Якщо в полі вже була помилка (touchedFields.has(id)), подія input миттєво оновлює стан при виправленні.
   fieldValidators.forEach(({ element, validate }) => {
     if (!element) return;
 
     element.addEventListener('blur', () => {
-      touchedFields.add(element.id);
-      validate();
+      // Якщо користувач просто клікнув у поле телефону (+380) і вийшов, нічого не ввівши, не спамимо помилкою до спроби вводу чи submit
+      if (element.id === 'phone' && element.value.trim() === '+380' && !touchedFields.has('phone')) {
+        return;
+      }
+      // Якщо поле ще зовсім порожнє при простому перемиканні — не дратуємо помилкою до введення або Submit,
+      // але якщо користувач щось увів і залишив поле (blur) — перевіряємо результат
+      if (element.value.trim().length > 0 || touchedFields.has(element.id)) {
+        touchedFields.add(element.id);
+        validate();
+      }
     });
 
     element.addEventListener('input', () => {
-      // Для поля phone з автопідстановкою +380 не показуємо помилку, поки введено лише базовий префікс
-      if (element.id === 'phone' && !touchedFields.has('phone') && element.value.trim() === '+380') {
+      // Для поля повідомлення завжди оновлюємо лічильник символів під час друку без передчасної помилки
+      if (element.id === 'message' && !touchedFields.has('message')) {
+        const charCounter = document.getElementById('messageCounter');
+        const len = element.value.trim().length;
+        if (charCounter) {
+          charCounter.textContent = `${len} / ${MAX_MESSAGE_LENGTH} символів`;
+          charCounter.classList.toggle('text-cyber-cyan', len >= MIN_MESSAGE_LENGTH && len <= MAX_MESSAGE_LENGTH);
+          charCounter.classList.toggle('text-red-400', len > MAX_MESSAGE_LENGTH);
+        }
         return;
       }
-      // Якщо користувач уже взаємодіяв із полем або почав вводити текст — оновлюємо стан
-      if (touchedFields.has(element.id) || element.value.trim().length > 0) {
-        touchedFields.add(element.id);
+
+      // Оновлюємо стан валідації на льоту лише після того, як користувач уже завершив перше введення (blur або submit)
+      if (touchedFields.has(element.id)) {
         validate();
       }
     });
